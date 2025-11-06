@@ -42,16 +42,14 @@
   <form method="POST" action="{{route('generateQR',[$company,$driver])}}">
     @csrf
     <div>
-      <label for="payee">Swish Number:</label><br />
-      <input type="number" id="payee" name="payee" value="1230163089" required readonly/>
+      <input type="number" id="payee" name="payee" value="1230163089" hidden required readonly/>
     </div>
     <div>
       <label for="amount">Amount (SEK):</label><br />
-      <input type="number" id="amount" name="amount" value="" required />
+      <input type="number" id="amount" name="amount" value="" min="1" required />
     </div>
     <div>
-      <label for="message">Message:</label><br />
-      <input type="text" id="message" name="message" value="{{$driver}}" maxlength="50" readonly/>
+      <input type="text" id="message" name="message" value="{{$driver}}" maxlength="50" hidden readonly/>
     </div>
     <button type="submit">Generate QR</button>
   </form>
